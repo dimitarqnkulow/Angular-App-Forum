@@ -8,9 +8,18 @@ import { AuthActivate } from '../core/guards/auth.activate';
 const routes: Routes = [
   {
     path: 'themes',
-    children: [{ path: '', pathMatch: 'full', component: MainComponent }],
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: MainComponent,
+      },
+      {
+        path: ':themeId',
+        component: DetailedThemeComponent,
+      },
+    ],
   },
-  { path: ':themeId', component: DetailedThemeComponent },
   {
     path: 'new-theme',
     component: NewThemeComponent,
