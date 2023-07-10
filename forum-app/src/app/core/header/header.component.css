@@ -78,3 +78,15 @@ nav {
   border-left: 1px solid lightgrey;
   padding-left: 0.5em;
 }
+
+/* mini-navbar */
+
+.mini-navbar ul {
+  background-color: #6ba1b8;
+  border-radius: 5px;
+}
+
+.mini-navbar ul li + li {
+  border-left: 1px solid lightgrey;
+  padding-left: 0.5em;
+}
