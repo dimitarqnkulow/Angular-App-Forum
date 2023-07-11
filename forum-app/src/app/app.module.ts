@@ -14,6 +14,7 @@ import { UserRoutingModule } from './user/user-routing.module';
 import { ThemeModule } from './theme/theme.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { UserModule } from './user/user.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +24,16 @@ import { UserModule } from './user/user.module';
     PostsListComponent,
     HomeComponent,
     WelcomeComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CoreModule,
     HttpClientModule,
     SharedModule,
     UserModule,
     ThemeModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
