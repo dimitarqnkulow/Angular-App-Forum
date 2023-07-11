@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Theme } from 'src/app/types/theme';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-detailed-theme',
@@ -13,9 +14,13 @@ export class DetailedThemeComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private userService: UserService
   ) {}
 
+  get isLogged(): boolean {
+    return this.userService.isLogged;
+  }
   ngOnInit(): void {
     this.fetchTheme();
   }
