@@ -39,7 +39,7 @@
           formControlName="email"
         />
       </p>
-      <ng-container *ngIf="form.get('username')?.touched">
+      <ng-container *ngIf="form.get('email')?.touched">
         <p class="error" *ngIf="form.get('email')?.errors?.['required']">
           Email is required!
         </p>
