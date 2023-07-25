@@ -13,8 +13,9 @@ import { HomeComponent } from './home/home.component';
 import { UserRoutingModule } from './user/user-routing.module';
 import { ThemeModule } from './theme/theme.module';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { UserModule } from './user/user.module';
+
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 @NgModule({
   declarations: [
@@ -25,17 +26,18 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HomeComponent,
     WelcomeComponent,
     NotFoundComponent,
+    AuthenticateComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
     HttpClientModule,
     SharedModule,
-    UserModule,
+
     ThemeModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
