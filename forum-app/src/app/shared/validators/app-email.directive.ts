@@ -1,4 +1,10 @@
-import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Directive,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import {
   AbstractControl,
   NG_VALIDATORS,
@@ -7,6 +13,7 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 import { appEmailValidator } from './app-email-validator';
+import { DEFAULT_EMAIL_DOMAINS } from '../constants';
 
 @Directive({
   selector: '[appEmail]',
@@ -28,8 +35,12 @@ export class AppEmailDirective implements Validator, OnChanges {
     return this.validator(control);
   }
 
+  ngOnInit(): void {
+    this.validator = appEmailValidator(DEFAULT_EMAIL_DOMAINS);
+  }
   ngOnChanges(changes: SimpleChanges): void {
     const currentEmailChanges = changes['appEmail'];
+
     if (currentEmailChanges) {
       this.validator = appEmailValidator(currentEmailChanges.currentValue);
     }
